@@ -39,7 +39,7 @@ router.post("/register", AuthenticationController.register);
 
 /**
  * @swagger
- * /auth/login:
+ * /api/auth/login:
  *   post:
  *     summary: Authentification de l'utilisateur
  *     tags: [Authentication]

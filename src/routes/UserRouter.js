@@ -10,7 +10,7 @@ const UserController = require("./../controller/UserController");
 
 /**
  * @swagger
- * /user/{id}:
+ * /api/user/{id}:
  *   get:
  *     summary: Récupérer ses informations
  *     tags: [User]
@@ -29,7 +29,7 @@ router.get("/:id", UserController.show);
 
 /**
  * @swagger
- * /user/{id}:
+ * /api/user/{id}:
  *   patch:
  *     summary: Modifier ses informations
  *     tags: [User]
@@ -63,7 +63,7 @@ router.patch("/:id", UserController.edit);
 
 /**
  * @swagger
- * /user/{id}:
+ * /api/user/{id}:
  *   delete:
  *     summary: Supprime un utilisateur
  *     tags: [User]
