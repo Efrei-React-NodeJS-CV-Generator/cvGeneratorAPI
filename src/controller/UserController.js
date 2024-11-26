@@ -9,7 +9,9 @@ module.exports = {
                 ? await UserModel.findById(req.params.id).populate({
                       path: "cv",
                       populate: [
-                          {path: "user"},
+                          {
+                            path: "user"
+                          },
                           {
                               path: "review",
                               populate: {
@@ -19,7 +21,7 @@ module.exports = {
                       ],
                   })
                 : null;
-            const authenticatedUser = await getAuthenticatedUser(req);
+            const authenticatedUser = await getAuthenticatedUser(req);            
 
             if (!isUserOwner(authenticatedUser, user)) {
                 return res.status(403).send({

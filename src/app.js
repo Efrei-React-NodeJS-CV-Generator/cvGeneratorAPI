@@ -1,7 +1,9 @@
 require("dotenv").config();
+const mongoose = require("mongoose");
+require('./models/CV');
+require('./models/User');
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
 const port = process.env.PORT || "3000";
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
