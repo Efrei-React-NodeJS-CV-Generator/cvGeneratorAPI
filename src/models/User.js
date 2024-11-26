@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Role = require("../enum/RolesEnum");
+const Role = require("../roles/RolesEnum");
 
 const UserSchema = new mongoose.Schema({
     prenom: {

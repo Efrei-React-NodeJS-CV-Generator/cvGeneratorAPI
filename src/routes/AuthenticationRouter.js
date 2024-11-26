@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const AuthenticationController = require("./../controller/AuthenticationController");
+const AuthenticationController = require("./../controller/AuthController");
 
 /**
  * @swagger
@@ -10,7 +10,7 @@ const AuthenticationController = require("./../controller/AuthenticationControll
 
 /**
  * @swagger
- * /auth/register:
+ * /api/auth/register:
  *   post:
  *     summary: Enregistrement d'un nouvel utilisateur
  *     tags: [Authentication]
@@ -21,11 +21,11 @@ const AuthenticationController = require("./../controller/AuthenticationControll
  *           schema:
  *             type: object
  *             properties:
- *               firstname:
+ *               prenom:
  *                 type: string
- *               lastname:
+ *               nom:
  *                 type: string
- *               username:
+ *               email:
  *                 type: string
  *               password:
  *                 type: string

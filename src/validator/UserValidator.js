@@ -23,12 +23,12 @@ module.exports = {
                 email: {
                     type: "string",
                     format: "email",
-                    errorMessage: "email est incorrect",
+                    errorMessage: "l'email est incorrect",
                 },
                 password: {
                     type: "String",
                     minLength: 6,
-                    errorMessage: "mot de passe incorrect",
+                    errorMessage: "Le mot de passe doit contenir minimun 6 caractère avoir un chiffre et une majuscule",
                     pattern: "^(?=.*[A-Z])(?=.*[0-9]).+$", // regex : minimun 1 chiffre et une majuscule                    
                 },
                 role: {

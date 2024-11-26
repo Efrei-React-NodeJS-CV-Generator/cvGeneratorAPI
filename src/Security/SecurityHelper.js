@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
-const UserModel = require("../../models/User");
-const Role = require("../../enum/RolesEnum");
+const UserModel = require("../models/User");
+const Role = require("../roles/RolesEnum");
 
 const getAuthenticatedUser = async (req) => {
     try {
