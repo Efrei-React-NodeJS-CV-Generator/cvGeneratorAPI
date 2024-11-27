@@ -107,7 +107,7 @@ const CvController = {
             cv.softSkills = req.body.softSkills || cv.softSkills;
             cv.telephone = req.body.telephone || cv.telephone;
             cv.linkedin = req.body.linkedin || cv.linkedin;
-            cv.private = req.body.private || cv.private;
+            cv.private = req.body.private !== undefined ? req.body.private : cv.private;
             cv.langage = req.body.langage || cv.langage;
 
             await cv.save();
@@ -178,11 +178,12 @@ const CvController = {
             }
 
             const cvDetails = cvs.map((cv) => ({
-                id: cv._id,
+                cvId: cv._id,
                 titre: cv.titre,
                 user: {
-                    firstname: cv.user.firstname,
-                    lastname: cv.user.lastname,
+                    id: cv.user._id,
+                    firstname: cv.user.prenom,
+                    lastname: cv.user.nom,
                 },
             }));
             res.status(200).send(cvDetails);
