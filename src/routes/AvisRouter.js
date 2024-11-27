@@ -35,4 +35,54 @@ const AvisController = require("../controller/AvisController");
  */
 router.post("/:id", AvisController.create);
 
+/**
+ * @swagger
+ * /api/avis/{id}:
+ *   patch:
+ *     summary: Mise à jour d'un Avis
+ *     tags: [Avis]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID du CV
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               comment:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Avis mis à jour avec succès
+ *       400:
+ *         description: Requête invalide
+ *       404:
+ *         description: Avis introuvable
+ *       403:
+ *         description: Non autorisé
+ */
+router.patch("/:id", AvisController.update);
+
+/**
+ * @swagger
+ * /api/avis/{id}:
+ *   delete:
+ *     summary: Suppression d'un Avis
+ *     tags: [Avis]
+ *     responses:
+ *       200:
+ *         description: Avis supprimé avec succès
+ *       404:
+ *         description: Avis introuvable
+ *       403:
+ *         description: Non autorisé
+ */
+router.delete("/:id", AvisController.delete);
+
 module.exports = router;
