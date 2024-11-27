@@ -10,9 +10,9 @@ const AvisController = require("../controller/AvisController");
 
 /**
  * @swagger
- * /Avis/{cvId}:
+ * /api/avis/{cvId}:
  *   post:
- *     summary: Ajout d'une nouvelle Avis
+ *     summary: Ajout d'un Avis
  *     tags: [Avis]
  *     requestBody:
  *       required: true

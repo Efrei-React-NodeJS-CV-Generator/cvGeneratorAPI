@@ -1,4 +1,4 @@
-const CvModel = require("../models/CV");
+const CvModel = require("../models/Cv");
 const UserModel = require("../models/User");
 const AvisModel = require("../models/Avis");
 const { getAuthenticatedUser, isUserAdmin, isUserOwner } = require("../Security/SecurityHelper");

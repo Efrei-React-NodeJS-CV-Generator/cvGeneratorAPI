@@ -10,7 +10,7 @@ const CvController = require("./../controller/CvController");
 
 /**
  * @swagger
- * /cv/createCv:
+ * /api/cv/createCv:
  *   post:
  *     summary: Création d'un nouveau CV
  *     tags: [Cv]
@@ -83,7 +83,7 @@ router.post("/createCv", CvController.create);
 
 /**
  * @swagger
- * /cv/getAllPubliccv:
+ * /api/cv/getAllPubliccv:
  *   get:
  *     summary: Récupérer tous les des CV publics sans détails
  *     tags: [Cv]
@@ -95,7 +95,7 @@ router.get("/getAllPublicCv", CvController.findAllPublicCv);
 
 /**
  * @swagger
- * /cv/update/{id}:
+ * /api/cv/update/{id}:
  *   post:
  *     summary: Mettre à jour un CV
  *     tags: [Cv]
@@ -173,7 +173,7 @@ router.patch("/update/:id", CvController.update);
 
 /**
  * @swagger
- * /cv/update/{id}:
+ * /api/cv/update/{id}:
  *   patch:
  *     summary: Mettre à jour un CV par ID
  *     tags: [Cv]
@@ -253,7 +253,7 @@ router.patch("/update/:id", CvController.update);
 
 /**
  * @swagger
- * /cv/{id}:
+ * /api/cv/{id}:
  *   get:
  *     summary: Récupérer un CV par ID
  *     tags: [Cv]
@@ -274,7 +274,7 @@ router.get("/:id", CvController.findOneCV);
 
 /**
  * @swagger
- * /cv/{id}:
+ * /api/cv/{id}:
  *   delete:
  *     summary: Supprimer un CV par ID
  *     tags: [Cv]
