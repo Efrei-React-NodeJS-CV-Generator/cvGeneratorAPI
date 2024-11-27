@@ -19,4 +19,4 @@ const AvisSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model("Avis", AvisSchema);
+module.exports = mongoose.models.Avis || mongoose.model("Avis", AvisSchema);

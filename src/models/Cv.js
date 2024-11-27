@@ -7,7 +7,7 @@ const CvSchema = new mongoose.Schema({
         required: true,
     },
 
-    review: [
+    Avis: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Avis",
@@ -66,4 +66,4 @@ const CvSchema = new mongoose.Schema({
     language: [String],
 });
 
-module.exports = mongoose.model("Cv", CvSchema);
+module.exports = mongoose.models.Cv || mongoose.model("Cv", CvSchema);

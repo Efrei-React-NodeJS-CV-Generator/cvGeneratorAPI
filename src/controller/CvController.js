@@ -1,6 +1,6 @@
 const CvModel = require("../models/Cv");
 const UserModel = require("../models/User");
-const ReviewModel = require("../models/Review");
+const AvisModel = require("../models/Avis");
 const { getAuthenticatedUser, isUserAdmin, isUserOwner } = require("../Security/SecurityHelper");
 const { verifyCv } = require("../validator/CvValidator");
 
@@ -61,7 +61,7 @@ const CvController = {
     delete: async (req, res) => {
         const authenticatedUser = await getAuthenticatedUser(req);
         try {
-            const cv = await CvModel.findById(req.params.id).populate("user").populate("review");
+            const cv = await CvModel.findById(req.params.id).populate("user").populate("Avis");
 
             if (!cv) {
                 return res.status(404).send({
@@ -77,7 +77,7 @@ const CvController = {
 
             const user = await UserModel.findById(cv.user._id);
             await user.updateOne({ cv: null });
-            await ReviewModel.deleteMany({ cv: cv._id });
+            await AvisModel.deleteMany({ cv: cv._id });
             await CvModel.findByIdAndDelete(cv._id);
 
             res.status(200).send({
@@ -141,7 +141,7 @@ const CvController = {
             const cv = await CvModel.findById(req.params.id)
                 .populate("user")
                 .populate({
-                    path: "review",
+                    path: "Avis",
                     populate: {
                         path: "user",
                     },

@@ -13,7 +13,7 @@ module.exports = {
                             path: "user"
                           },
                           {
-                              path: "review",
+                              path: "Avis",
                               populate: {
                                   path: "user",
                               },

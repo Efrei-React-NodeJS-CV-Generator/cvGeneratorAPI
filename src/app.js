@@ -1,6 +1,7 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
-require('./models/CV');
+require('./models/Cv');
+require('./models/Avis');
 require('./models/User');
 const express = require("express");
 const app = express();
