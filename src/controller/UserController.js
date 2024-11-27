@@ -86,7 +86,7 @@ module.exports = {
         const authenticatedUser = await getAuthenticatedUser(req);
 
         if (!isUserAdmin(authenticatedUser)) {
-            return res.status(403).send({
+            return res.status(403).send({ 
                 message: "Vous n'avez pas les droits suffisants pour supprimer un utilisateur",
             });
         }

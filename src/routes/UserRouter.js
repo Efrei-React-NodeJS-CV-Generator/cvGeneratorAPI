@@ -49,7 +49,7 @@ router.get("/:id", UserController.show);
  *                 type: string
  *               nom:
  *                 type: string
- *               username:
+ *               email:
  *                 type: string
  *               password:
  *                 type: string
