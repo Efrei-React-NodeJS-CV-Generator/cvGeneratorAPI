@@ -1,4 +1,4 @@
-const CvModel = require("../models/Cv");
+const CvModel = require("../models/CV");
 const UserModel = require("../models/User");
 const AvisModel = require("../models/Avis");
 const { getAuthenticatedUser, isUserAdmin, isUserOwner } = require("../Security/SecurityHelper");
@@ -25,16 +25,16 @@ const CvController = {
 
             const cv = new CvModel({
                 user: authenticatedUser._id,
-                title: req.body.title,
+                titre: req.body.titre,
                 education: req.body.education,
                 experience: req.body.experience,
-                biography: req.body.biography,
+                presentation: req.body.presentation,
                 skills: req.body.skills,
                 softSkills: req.body.softSkills,
                 telephone: req.body.telephone,
                 linkedin: req.body.linkedin,
                 private: req.body.private,
-                language: req.body.language,
+                langage: req.body.langage,
             });
 
             const savedCv = await cv.save();
@@ -42,16 +42,16 @@ const CvController = {
 
             res.status(201).send({
                 user: authenticatedUser,
-                title: savedCv.title,
+                titre: savedCv.titre,
                 education: savedCv.education,
                 experience: savedCv.experience,
-                biography: savedCv.biography,
+                presentation: savedCv.presentation,
                 skills: savedCv.skills,
                 softSkills: savedCv.softSkills,
                 telephone: savedCv.telephone,
                 linkedin: savedCv.linkedin,
                 private: savedCv.private,
-                language: savedCv.language,
+                langage: savedCv.langage,
             });
         } catch (error) {
             res.status(500).json({ message: error.message });
@@ -99,16 +99,16 @@ const CvController = {
                 });
             }
 
-            cv.title = req.body.title || cv.title;
+            cv.titre = req.body.titre || cv.titre;
             cv.education = req.body.education || cv.education;
             cv.experience = req.body.experience || cv.experience;
-            cv.biography = req.body.biography || cv.biography;
+            cv.presentation = req.body.presentation || cv.presentation;
             cv.skills = req.body.skills || cv.skills;
             cv.softSkills = req.body.softSkills || cv.softSkills;
             cv.telephone = req.body.telephone || cv.telephone;
             cv.linkedin = req.body.linkedin || cv.linkedin;
             cv.private = req.body.private || cv.private;
-            cv.language = req.body.language || cv.language;
+            cv.langage = req.body.langage || cv.langage;
 
             await cv.save();
 
@@ -116,16 +116,16 @@ const CvController = {
                 message: "CV mis à jour avec succès",
                 cv: {
                     id: cv._id,
-                    title: cv.title,
+                    titre: cv.titre,
                     education: cv.education,
                     experience: cv.experience,
-                    biography: cv.biography,
+                    presentation: cv.presentation,
                     skills: cv.skills,
                     softSkills: cv.softSkills,
                     telephone: cv.telephone,
                     linkedin: cv.linkedin,
                     private: cv.private,
-                    language: cv.language,
+                    langage: cv.langage,
                 },
             });
         } catch (error) {
@@ -169,7 +169,7 @@ const CvController = {
 
     findAllPublicCv: async (req, res) => {
         try {
-            const cvs = await CvModel.find({ private: false }).select("_id title user").populate("user");
+            const cvs = await CvModel.find({ private: false }).select("_id titre user").populate("user");
 
             if (!cvs.length) {
                 return res.status(404).send({
@@ -179,7 +179,7 @@ const CvController = {
 
             const cvDetails = cvs.map((cv) => ({
                 id: cv._id,
-                title: cv.title,
+                titre: cv.titre,
                 user: {
                     firstname: cv.user.firstname,
                     lastname: cv.user.lastname,

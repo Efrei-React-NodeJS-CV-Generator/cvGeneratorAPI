@@ -14,7 +14,7 @@ const CvSchema = new mongoose.Schema({
         },
     ],
 
-    title: {
+    titre: {
         type: String,
         required: true,
     },
@@ -39,7 +39,7 @@ const CvSchema = new mongoose.Schema({
         },
     ],
 
-    biography: {
+    presentation: {
         type: String,
         required: true,
     },
@@ -63,7 +63,7 @@ const CvSchema = new mongoose.Schema({
         default: true,
     },
 
-    language: [String],
+    langage: [String],
 });
 
 module.exports = mongoose.models.Cv || mongoose.model("Cv", CvSchema);
