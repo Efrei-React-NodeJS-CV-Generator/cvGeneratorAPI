@@ -23,7 +23,7 @@ const CvController = require("./../controller/CvController");
  *             properties:
  *               user:
  *                 type: string
- *               title:
+ *               titre:
  *                 type: string
  *               education:
  *                 type: array
@@ -53,7 +53,7 @@ const CvController = require("./../controller/CvController");
  *                       type: number
  *                     endDate:
  *                       type: number
- *               biography:
+ *               presentation:
  *                 type: string
  *               skills:
  *                 type: array
@@ -69,7 +69,7 @@ const CvController = require("./../controller/CvController");
  *                 type: string
  *               private:
  *                 type: boolean
- *               language:
+ *               langage:
  *                 type: array
  *                 items:
  *                   type: string
@@ -98,6 +98,84 @@ router.get("/getAllPublicCv", CvController.findAllPublicCv);
  * /cv/update/{id}:
  *   post:
  *     summary: Mettre à jour un CV
+ *     tags: [Cv]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID du CV
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               titre:
+ *                 type: string
+ *               education:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     school:
+ *                       type: string
+ *                     formation:
+ *                       type: string
+ *                     description:
+ *                       type: string
+ *                     startDate:
+ *                       type: number
+ *                     endDate:
+ *                       type: number
+ *               experience:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     compagny:
+ *                       type: string
+ *                     position:
+ *                       type: string
+ *                     startDate:
+ *                       type: number
+ *                     endDate:
+ *                       type: number
+ *               presentation:
+ *                 type: string
+ *               skills:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *               softSkills:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *               telephone:
+ *                 type: number
+ *               linkedin:
+ *                 type: string
+ *               private:
+ *                 type: boolean
+ *               langage:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *     responses:
+ *       200:
+ *         description: CV mis à jour avec succès
+ *       400:
+ *         description: Requête invalide
+ */
+router.patch("/update/:id", CvController.update);
+
+/**
+ * @swagger
+ * /cv/update/{id}:
+ *   patch:
+ *     summary: Mettre à jour un CV par ID
  *     tags: [Cv]
  *     parameters:
  *       - in: path
@@ -154,7 +232,7 @@ router.get("/getAllPublicCv", CvController.findAllPublicCv);
  *                 items:
  *                   type: string
  *               telephone:
- *                 type: number
+ *                 type: string
  *               linkedin:
  *                 type: string
  *               private:
@@ -168,6 +246,8 @@ router.get("/getAllPublicCv", CvController.findAllPublicCv);
  *         description: CV mis à jour avec succès
  *       400:
  *         description: Requête invalide
+ *       404:
+ *         description: CV non trouvé
  */
 router.patch("/update/:id", CvController.update);
 
