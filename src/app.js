@@ -32,6 +32,49 @@ const swaggerOptions = {
     apis: ["./src/routes/*.js"],
 };
 
+app.get("/", (req, res) => {
+    res.send(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Welcome to CV Generator API</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f4f4f4;
+                    color: #333;
+                    text-align: center;
+                    padding: 50px;
+                }
+                h1 {
+                    color: #4CAF50;
+                }
+                a {
+                    text-decoration: none;
+                    color: white;
+                    background-color: #4CAF50;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    font-size: 18px;
+                }
+                a:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Bienvenue sur CV Generator !!</h1>
+            <p>Ce site constitue le backend pour la gestion des CV, des utilisateurs et des évaluations.</p>
+            <p>Pour consulter la documentation de l'API, cliquez sur le bouton ci-dessous :</p>
+            <a href="/api-docs">Voir la documentation de l'API</a>
+        </body>
+        </html>
+    `);
+});
+
+
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
