@@ -12,8 +12,8 @@ Ce dépôt contient la partie **backend** du projet **Générateur de CV**. Il u
 
 1. Clonez le dépôt :  
    ```bash
-   git clone https://github.com/username/cv-generator-backend.git
-   cd cv-generator-backend
+   git clone https://github.com/Mathias002/cvGeneratorAPI.git
+   cd cvGeneratorAPI
    ```
 
 2. Installez les dépendances :  
